@@ -700,7 +700,8 @@ but does ensure that there will not be name collisions."
                                          bbdb-phone-label-list))))
                (setq phone-list
                      (bbdb-error-retry
-                      (bbdb-parse-phone
+                      ;; (bbdb-parse-phone
+		      (list
                        (read-string "Phone: "
                                     (and (integerp bbdb-default-area-code)
                                          (format "(%03d) "
@@ -913,7 +914,8 @@ A non-nil prefix arg is passed on to `bbdb-read-field' as FLAG (see there)."
              (apply 'vector
                     (bbdb-read-string "Label: " nil bbdb-phone-label-list)
                     (bbdb-error-retry
-                     (bbdb-parse-phone
+                     ;; (bbdb-parse-phone
+		     (list
                       (read-string "Phone: "
                                    (and (integerp bbdb-default-area-code)
                                         (format "(%03d) "
@@ -1222,7 +1224,8 @@ Country:         country"
                                    (bbdb-phone-label phone)
                                    bbdb-phone-label-list)
                  (bbdb-error-retry
-                  (bbdb-parse-phone
+                  ;; (bbdb-parse-phone
+		  (list
                    (read-string "Phone: " (bbdb-phone-string phone)))))))
 
 ;; (bbdb-list-transpose '(a b c d) 1 3)
